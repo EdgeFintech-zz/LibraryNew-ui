@@ -8,6 +8,10 @@
 
         <div class="slide-out-content">
             <form onsubmit={{action "login"}}>
+                <!-- this does not display the error message. Video 44 -->
+                {{#each errors as |error|}}
+                    <div class="error-alert">{{error.detail}}</div>
+                {{/each}}
                 <div class="field">
                     <label>Email:</label>
                     {{input type="text" placeholder="Email" value=email}}
