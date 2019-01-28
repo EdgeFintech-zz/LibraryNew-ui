@@ -10,8 +10,9 @@ export default Controller.extend({
                 email: attrs.email,
                 password: attrs.password
             }).catch((e) => {
-                // This does not appear to work. Posted to SO 10-15-2018. Video 44
-                this.set('errors', e.errors);                
+                // Video 44 issue. This does not appear to work. Posted to SO 10-15-2018.
+                // Fixed on 1-20-2019: e.errors should be e.json.errors (breaking change from Simple Auth released)
+                this.set('errors', e.json.errors);                
             });
         }
     }
